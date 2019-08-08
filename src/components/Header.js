@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
@@ -59,8 +59,15 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-export default function SearchAppBar() {
+export default function Header({ handleSubmit }) {
   const classes = useStyles();
+  const [searchValue, setSearchValue] = useState('');
+
+  const handleKeyPress = (target) => {
+    if(target.charCode === 13) {
+      handleSubmit(searchValue);    
+    } 
+  }
 
   return (
     <div className={classes.root}>
@@ -79,7 +86,10 @@ export default function SearchAppBar() {
                 root: classes.inputRoot,
                 input: classes.inputInput,
               }}
+              value={searchValue}
               inputProps={{ 'aria-label': 'search' }}
+              onChange={(e) => setSearchValue(e.target.value)}
+              onKeyPress={handleKeyPress}
             />
           </div>
         </Toolbar>

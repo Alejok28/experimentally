@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import './App.css';
 import Header from './components/Header'
-
+import youtube from './api/youtube'
 
 const THEME = createMuiTheme({
   typography: {
@@ -26,10 +26,29 @@ const THEME = createMuiTheme({
 });
 
 function App() {
+  const [videos, setVideos] = useState([]);
+
+  const fetchData = async (searchValue) => {
+    const response = await youtube.get('/search', {
+      params: {
+        q: searchValue,
+        part: 'snippet',
+        type: 'video',
+        maxResults: 6,
+        key: 'AIzaSyCynpKM_MFUdfczSQh8jIZRgbQtceNlB3E'
+      }
+    })
+    setVideos(response.items);
+  }
+
+  useEffect(()=> {
+    fetchData('Reactjs')
+  }, []);
+
   return (
     <ThemeProvider theme={THEME}>
       <div className="App">
-        <Header />
+        <Header handleSubmit={fetchData} />
       </div>
     </ThemeProvider>
   );
