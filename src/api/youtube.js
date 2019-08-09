@@ -1,9 +1,59 @@
-import axios from 'axios';
-const KEY = 'AIzaSyCynpKM_MFUdfczSQh8jIZRgbQtceNlB3E';
+import apisauce from 'apisauce'
 
-export default axios.create({
-  baseURL: 'https://www.googleapis.com/youtube/v3/',
-  params: {
-    key: KEY
+const YOUTUBE_KEY = 'AIzaSyCynpKM_MFUdfczSQh8jIZRgbQtceNlB3E';
+
+const create = () => {
+  const api = apisauce.create({
+    baseURL: 'https://www.googleapis.com/youtube/v3/',
+    headers: {
+      'Content-Type': 'application/json'
+      // 'Authorization': 'Bearer' + token
+    },
+    timeout: 8000
+  });
+
+// *------------------- GET API CALLS -----------------------------*
+  const getVideos = function (searchValue) {
+    const params =  {
+      q: searchValue,
+      part: 'snippet',
+      type: 'video',
+      maxResults: 6,
+      key: YOUTUBE_KEY
+    }
+    return (
+      api
+        .get(`/search`, params)
+        .then(response => {
+          debugger
+          return response;
+        })
+        .catch(error => {
+          debugger
+          throw error;
+        })
+    );
   }
-})
+
+  const getStatistics = function (videoId) {
+    const params= {
+      id: videoId,
+      part: 'statistics',
+      key: YOUTUBE_KEY
+    }
+    return (
+      api
+        .get(`/videos`, params)
+        .then(response => {
+          return response;
+        })
+        .catch(error => {
+          throw error;
+        })
+    );
+  }
+
+  return { getVideos, getStatistics }
+}
+
+export default create();

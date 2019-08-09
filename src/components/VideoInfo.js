@@ -27,26 +27,29 @@ const useStyles = makeStyles({
   },
   actions: {
     display: 'flex', justifyContent: 'space-between'
+  },
+  error: {
+    textAlign: 'center',
+    margin: '30px'
   }
 });
 
 export default function VideoInfo({ video }) {
   const [loading, setLoading] = useState(false)
   const [statistics, setStatistics] = useState(false)
-  const { id, snippet } = video;
+  const [error, setError] = useState();
   const classes = useStyles();
+  const { id, snippet } = video;
 
   useEffect(() => {
     const fetchData = async (searchValue) => {
       setLoading(true);
-      const response = await youtube.get('/videos', {
-        params: {
-          id: id.videoId,
-          part: 'statistics',
-          key: 'AIzaSyCynpKM_MFUdfczSQh8jIZRgbQtceNlB3E'
-        }
-      })
-      setStatistics(response.data.items[0].statistics);
+      const response = await youtube.getStatistics(id.videoId)
+      if (response.ok) {
+        setStatistics(response.data.items[0].statistics);
+      }else {
+        setError(`Hubo un problema al buscar las estadísticas del video: ${response.problem}`)
+      }
       setLoading(false);
     }
     fetchData('')
@@ -54,6 +57,11 @@ export default function VideoInfo({ video }) {
 
   return (
     <Container className={classes.root}>
+    {error && (
+      <Typography className={classes.error} color="error" variant="h5" component="h3">
+        {error}
+      </Typography>
+    )}
     {loading ? (
         <CircularProgress color="secondary" />
     ) : (
@@ -78,11 +86,13 @@ export default function VideoInfo({ video }) {
                 {snippet.description}
               </Typography>
             </CardContent>
-            <CardActions className={classes.actions}>
-              <Like color="secondary" />{statistics.likeCount}
-              <Dislike color="error" />{statistics.dislikeCount}
-              <Comments color="disabled" />{statistics.commentCount}
-            </CardActions>
+            {!error && (
+              <CardActions className={classes.actions}>
+                <Like color="secondary" />{statistics.likeCount}
+                <Dislike color="error" />{statistics.dislikeCount}
+                <Comments color="disabled" />{statistics.commentCount}
+              </CardActions>
+            )}
           </Card>
         </Grid>
       </Grid>
