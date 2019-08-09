@@ -28,11 +28,11 @@ const useStyles = makeStyles(theme => ({
       backgroundColor: fade(theme.palette.common.white, 0.25),
     },
     marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing(1),
-      width: 'auto',
-    },
+    width: 'auto',
+    // [theme.breakpoints.up('sm')]: {
+    //   marginLeft: theme.spacing(1),
+    //   width: 'auto',
+    // },
   },
   searchIcon: {
     width: theme.spacing(7),
@@ -60,8 +60,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default function Header({ handleSubmit }) {
-  const classes = useStyles();
   const [searchValue, setSearchValue] = useState('');
+  const classes = useStyles();
 
   const handleKeyPress = (target) => {
     if(target.charCode === 13) {

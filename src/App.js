@@ -3,6 +3,8 @@ import { createMuiTheme } from '@material-ui/core/styles';
 import { ThemeProvider } from '@material-ui/styles';
 import './App.css';
 import Header from './components/Header'
+import RecomendedList from './components/RecomendedList'
+import VideoInfo from './components/VideoInfo'
 import youtube from './api/youtube'
 
 const THEME = createMuiTheme({
@@ -27,8 +29,11 @@ const THEME = createMuiTheme({
 
 function App() {
   const [videos, setVideos] = useState([]);
+  const [selectedVideo, setSelectedVideo] = useState();
+  const [loading, setLoading] = useState(false)
 
   const fetchData = async (searchValue) => {
+    setLoading(true);
     const response = await youtube.get('/search', {
       params: {
         q: searchValue,
@@ -38,17 +43,25 @@ function App() {
         key: 'AIzaSyCynpKM_MFUdfczSQh8jIZRgbQtceNlB3E'
       }
     })
-    setVideos(response.items);
+    setVideos(response.data.items);
+    setSelectedVideo(response.data.items[0])
+    setLoading(false);
+  }
+
+  const handleClick = (video) => {
+    setSelectedVideo(video)
   }
 
   useEffect(()=> {
-    fetchData('Reactjs')
+    fetchData('')
   }, []);
 
   return (
     <ThemeProvider theme={THEME}>
-      <div className="App">
+      <div className="App" style={{ width: '100%', height: '100vh', backgroundColor: '#333333'}}>
         <Header handleSubmit={fetchData} />
+        <RecomendedList videos={videos} loading={loading} handleClick={handleClick}/>
+        {selectedVideo && <VideoInfo video={selectedVideo} />}
       </div>
     </ThemeProvider>
   );
