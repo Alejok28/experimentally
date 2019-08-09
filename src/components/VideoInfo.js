@@ -1,5 +1,8 @@
 import React, {useState, useEffect} from 'react';
-import YouTubePlayer from 'react-player/lib/players/YouTube'
+import { makeStyles } from '@material-ui/styles';
+import YouTubePlayer from 'react-player/lib/players/YouTube';
+
+// Components
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -11,16 +14,28 @@ import Like from '@material-ui/icons/ThumbUp';
 import Dislike from '@material-ui/icons/ThumbDown';
 import Comments from '@material-ui/icons/Comment';
 
-
+// Others
 import youtube from '../api/youtube';
 import { escapeHtml } from '../utils/functions';
+
+const useStyles = makeStyles({
+  root: {
+    margin: '50px 0'
+  },
+  container:{ 
+    height: '50vh'
+  },
+  actions: {
+    display: 'flex', justifyContent: 'space-between'
+  }
+});
 
 export default function VideoInfo({ video }) {
   const [loading, setLoading] = useState(false)
   const [statistics, setStatistics] = useState(false)
   const { id, snippet } = video;
+  const classes = useStyles();
 
-  
   useEffect(() => {
     const fetchData = async (searchValue) => {
       setLoading(true);
@@ -38,11 +53,11 @@ export default function VideoInfo({ video }) {
   }, [id.videoId]);
 
   return (
-    <Container style={{ margin: '50px 0'}}>
+    <Container className={classes.root}>
     {loading ? (
         <CircularProgress color="secondary" />
     ) : (
-      <Grid container spacing={3} style={{ height: '50vh'}} >
+      <Grid container spacing={3} className={classes.container}>
         <Grid item xs={12} sm={7}>
           <YouTubePlayer
             url={`https://www.youtube.com/watch?v=${id.videoId}`}
@@ -63,7 +78,7 @@ export default function VideoInfo({ video }) {
                 {snippet.description}
               </Typography>
             </CardContent>
-            <CardActions style={{ display: 'flex', justifyContent: 'space-between'}}>
+            <CardActions className={classes.actions}>
               <Like color="secondary" />{statistics.likeCount}
               <Dislike color="error" />{statistics.dislikeCount}
               <Comments color="disabled" />{statistics.commentCount}
