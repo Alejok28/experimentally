@@ -1,0 +1,25 @@
+---
+name: Header
+route: /components/Header
+menu: Components
+---
+import { Playground, Props } from 'docz'
+import Header from '../components/Header'
+
+# Header
+Header is a component where the user can search videos according to the parameters entered in the input field.
+
+## Properties
+<Props of={Header} />
+
+| Name          | Type     | Required   |Description                               |
+|:-------------|:--------:|:----------:|:-----------------------------------------|
+| handleSubmit | Funct    | true       | This functions is in charge of searching for videos according to parameter passed|
+
+
+## Basic usage
+
+<Playground>
+  <Header />
+</Playground>
+
