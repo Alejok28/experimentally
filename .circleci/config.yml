@@ -27,3 +27,5 @@ jobs:
       - run: yarn test
 
       - run: yarn build
+
+      - run: yarn netlify:deploy
