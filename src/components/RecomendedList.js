@@ -3,16 +3,13 @@ import { makeStyles } from '@material-ui/styles';
 
 // Components
 import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import Tooltip from '@material-ui/core/Tooltip';
+import RecommendedItem from '../components/RecommendedItem';
 
-// Others
-import { escapeHtml } from '../utils/functions';
 
 const useStyles = makeStyles({
   root: {
-    margin: '40px 0',
+    margin: '20px 0',
     textAlign: 'center'
   },
   grid: {
@@ -35,18 +32,8 @@ export default function RecomendedList({ videos = [], loading, handleClick }) {
       ) : (
         <div className={classes.listContainer}>
           {videos.map(video => {
-            const { snippet, id } = video;
             return (
-              <Grid className={classes.grid} key={id.videoId} item xs={12}>
-                <Tooltip title={escapeHtml(snippet.title)}>
-                  <img
-                    className={classes.img}
-                    src={snippet.thumbnails.default.url}
-                    alt={id.videoId}
-                    onClick={() => handleClick(video)}
-                  />
-                </Tooltip>
-              </Grid>
+              <RecommendedItem key={video.id.videoId} video={video} handleClick={handleClick} />
             )
           })}
         </div>

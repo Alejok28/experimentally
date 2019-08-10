@@ -7,7 +7,6 @@ const create = () => {
     baseURL: 'https://www.googleapis.com/youtube/v3/',
     headers: {
       'Content-Type': 'application/json'
-      // 'Authorization': 'Bearer' + token
     },
     timeout: 8000
   });
@@ -25,12 +24,7 @@ const create = () => {
       api
         .get(`/search`, params)
         .then(response => {
-          debugger
           return response;
-        })
-        .catch(error => {
-          debugger
-          throw error;
         })
     );
   }
@@ -46,9 +40,6 @@ const create = () => {
         .get(`/videos`, params)
         .then(response => {
           return response;
-        })
-        .catch(error => {
-          throw error;
         })
     );
   }

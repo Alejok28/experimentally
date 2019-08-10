@@ -4,7 +4,7 @@ import { makeStyles } from '@material-ui/styles';
 // Components
 import Header from '../components/Header'
 import RecomendedList from '../components/RecomendedList'
-import VideoInfo from '../components/VideoInfo'
+import Video from '../containers/Video';
 import Typography from '@material-ui/core/Typography';
 
 // Others
@@ -42,10 +42,6 @@ function AppContainer() {
       setLoading(false);
   }
 
-  const handleClick = (video) => {
-    setSelectedVideo(video)
-  }
-
   useEffect(() => {
     fetchData('')
   }, []);
@@ -58,8 +54,12 @@ function AppContainer() {
           {error}
         </Typography>
       )}
-      <RecomendedList videos={videos} loading={loading} handleClick={handleClick} />
-      {selectedVideo && <VideoInfo video={selectedVideo} />}
+      <RecomendedList
+        videos={videos}
+        loading={loading}
+        handleClick={video => setSelectedVideo(video)}
+      />
+      {selectedVideo && <Video video={selectedVideo} />}
     </div>
   );
 }
