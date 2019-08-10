@@ -19,15 +19,15 @@ const useStyles = makeStyles({
 
 export default function RecommendedItem({ video, handleClick }) {
   const classes = useStyles();
-  const { snippet, id } = video;
+  const { snippet } = video;
 
   return (
-    <Grid className={classes.grid} key={id.videoId} item xs={12}>
+    <Grid className={classes.grid}item xs={12}>
       <Tooltip title={escapeHtml(snippet.title)}>
         <img
           className={classes.img}
           src={snippet.thumbnails.default.url}
-          alt={id.videoId}
+          alt={snippet.title}
           onClick={() => handleClick(video)}
         />
       </Tooltip>
