@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders image corrrectly 1`] = `
+<div>
+  <div
+    class="MuiGrid-root makeStyles-grid-1 MuiGrid-item MuiGrid-grid-xs-12"
+  >
+    <img
+      alt="Ryan Reynolds &amp; Jake Gyllenhaal Answer the Web&#39;s Most Searched Questions | WIRED"
+      class="makeStyles-img-2"
+      src="https://i.ytimg.com/vi/z2VZ_OGz0RU/default.jpg"
+      title="Ryan Reynolds & Jake Gyllenhaal Answer the Web's Most Searched Questions | WIRED"
+    />
+  </div>
+</div>
+`;

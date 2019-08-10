@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders loading when  1`] = `
+<div>
+  <div
+    class="MuiContainer-root makeStyles-root-1 MuiContainer-maxWidthLg"
+  >
+    <div
+      class="MuiCircularProgress-root MuiCircularProgress-colorSecondary MuiCircularProgress-indeterminate"
+      role="progressbar"
+      style="width: 40px; height: 40px;"
+    >
+      <svg
+        class="MuiCircularProgress-svg"
+        viewBox="22 22 44 44"
+      >
+        <circle
+          class="MuiCircularProgress-circle MuiCircularProgress-circleIndeterminate"
+          cx="44"
+          cy="44"
+          fill="none"
+          r="20.2"
+          stroke-width="3.6"
+        />
+      </svg>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`renders when videos props is passed 1`] = `
+<div>
+  <div
+    class="MuiContainer-root makeStyles-root-24 MuiContainer-maxWidthLg"
+  >
+    <div
+      class="makeStyles-listContainer-26"
+    >
+      <div
+        class="MuiGrid-root makeStyles-grid-35 MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <img
+          alt="Ryan Reynolds &amp; Jake Gyllenhaal Answer the Web&#39;s Most Searched Questions | WIRED"
+          class="makeStyles-img-36"
+          src="https://i.ytimg.com/vi/z2VZ_OGz0RU/default.jpg"
+          title="Ryan Reynolds & Jake Gyllenhaal Answer the Web's Most Searched Questions | WIRED"
+        />
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-35 MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <img
+          alt="[M/V] SEVENTEEN(세븐틴) - HIT"
+          class="makeStyles-img-36"
+          src="https://i.ytimg.com/vi/F9CrRG6j2SM/default.jpg"
+          title="[M/V] SEVENTEEN(세븐틴) - HIT"
+        />
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-35 MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <img
+          alt="Real Life Trick Shots | Dude Perfect"
+          class="makeStyles-img-36"
+          src="https://i.ytimg.com/vi/A2FsgKoGD04/default.jpg"
+          title="Real Life Trick Shots | Dude Perfect"
+        />
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-35 MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <img
+          alt="Sech - Otro Trago ft. Darell (Video Oficial)"
+          class="makeStyles-img-36"
+          src="https://i.ytimg.com/vi/t_qn-f7XfJo/default.jpg"
+          title="Sech - Otro Trago ft. Darell (Video Oficial)"
+        />
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-35 MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <img
+          alt="Real Life Trick Shots 2 | Dude Perfect"
+          class="makeStyles-img-36"
+          src="https://i.ytimg.com/vi/VRJmcxCrAOA/default.jpg"
+          title="Real Life Trick Shots 2 | Dude Perfect"
+        />
+      </div>
+      <div
+        class="MuiGrid-root makeStyles-grid-35 MuiGrid-item MuiGrid-grid-xs-12"
+      >
+        <img
+          alt="Key &amp; Peele - Gay Wedding Advice"
+          class="makeStyles-img-36"
+          src="https://i.ytimg.com/vi/rtgY1q0J_TQ/default.jpg"
+          title="Key & Peele - Gay Wedding Advice"
+        />
+      </div>
+    </div>
+  </div>
+</div>
+`;
