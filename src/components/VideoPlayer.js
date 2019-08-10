@@ -1,5 +1,6 @@
 import React from 'react';
 import YouTubePlayer from 'react-player/lib/players/YouTube';
+import PropTypes from 'prop-types';
 
 export default function VideoPlayer({ videoId}) {
   return (
@@ -12,3 +13,7 @@ export default function VideoPlayer({ videoId}) {
     />
   );
 }
+
+VideoPlayer.propTypes = {
+  videoId: PropTypes.string,
+};

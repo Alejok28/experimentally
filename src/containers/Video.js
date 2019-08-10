@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/styles';
-import VideoPlayer from '../components/VideoPlayer';
+import PropTypes from 'prop-types';
 
 // Components
 import Container from '@material-ui/core/Container';
@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Typography from '@material-ui/core/Typography';
 import VideoInfo from '../components/VideoInfo';
+import VideoPlayer from '../components/VideoPlayer';
 
 // Others
 import youtube from '../api/youtube';
@@ -27,7 +28,7 @@ const useStyles = makeStyles({
 
 export default function Video({ video }) {
   const [loading, setLoading] = useState(false)
-  const [statistics, setStatistics] = useState(false)
+  const [statistics, setStatistics] = useState({})
   const [error, setError] = useState();
   const classes = useStyles();
   const { id, snippet } = video;
@@ -68,3 +69,7 @@ export default function Video({ video }) {
     </Container>
   );
 }
+
+Video.propTypes = {
+  videos: PropTypes.object
+};

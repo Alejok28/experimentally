@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import PropTypes from 'prop-types';
 
 // Components
 import Card from '@material-ui/core/Card';
@@ -54,3 +55,14 @@ export default function VideoInfo({ snippet, statistics }) {
     </Card>
   );
 }
+
+
+
+VideoInfo.propTypes = {
+  snippet: PropTypes.object.isRequired,
+  statistics: PropTypes.object,
+};
+
+VideoInfo.defaultProps = {
+  statistics: undefined
+};

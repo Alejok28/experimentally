@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import PropTypes from 'prop-types';
 
 // Components
 import AppBar from '@material-ui/core/AppBar';
@@ -99,3 +100,7 @@ export default function Header({ handleSubmit }) {
     </div>
   );
 }
+
+Header.propTypes = {
+  handleSubmit: PropTypes.func,
+};

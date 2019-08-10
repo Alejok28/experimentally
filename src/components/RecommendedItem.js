@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import PropTypes from 'prop-types';
 
 // Components
 import Grid from '@material-ui/core/Grid';
@@ -34,3 +35,9 @@ export default function RecommendedItem({ video, handleClick }) {
     </Grid>
   )
 }
+
+
+RecommendedItem.propTypes = {
+  video: PropTypes.object.isRequired,
+  handleClick: PropTypes.func
+};

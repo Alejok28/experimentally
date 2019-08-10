@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/styles';
+import PropTypes from 'prop-types';
 
 // Components
 import Container from '@material-ui/core/Container';
@@ -42,3 +43,14 @@ export default function RecomendedList({ videos = [], loading, handleClick }) {
     </Container>
   )
 }
+
+RecomendedList.propTypes = {
+  videos: PropTypes.array,
+  loading: PropTypes.bool,
+  handleClick: PropTypes.func
+};
+
+RecomendedList.defaultProps = {
+  videos: [],
+  loading: false
+};
