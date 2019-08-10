@@ -36,7 +36,7 @@ To test, you must run `yarn test`
 
 ## Docs
 For the documentation I used `Docz`. This package allows you to see all documentation in a single page with basic usage examples for each components.
-To see the docs you must run the command `yarn docz:dev`.
+To see the docs you must run the command `yarn docz:dev` or visit [Experimentality docs](https://silly-darwin-3e4b7c.netlify.com).
 
 ## CI/CD
 To CICD I use CircleCI and Netlify. In the `config.yml` file is the step that runs the yarn script to deploy the app to Netlify.
