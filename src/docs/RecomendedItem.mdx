@@ -1,0 +1,36 @@
+---
+name: RecommendedItem
+route: /components/RecommendedItem
+menu: Components
+---
+
+import { Playground } from 'docz';
+import RecommendedItem from '../components/RecommendedItem';
+import { videos } from '../_test_/__fixtures__/videos';
+
+
+# RecommendedItem
+RecommendedItem is a component that shows a the thumbnail of the video and a tooltip to see the title. This component is in charge to select a video to play in the VideoPlayer component.
+
+## Properties
+
+| Name          | Type     | Required     |Description                                |
+|:--------------|:--------:|:------------:|:------------------------------------------|
+| video         | Object   | true         | Object with the info commig from YoutubeApi|
+| handleClick   | Func     | true         | This function is in charge for selecting a video to play in the VideoPlayer component |
+
+
+## Basic usage
+
+<Playground>
+  {() => {
+    return (
+      <div style={{ textAlign: 'center' }}>
+        <RecommendedItem video={videos[0]} handleClick={data => console.log(data)} />
+      </div>
+    );
+
+  }}
+</Playground>
+
+

@@ -1,0 +1,33 @@
+---
+name: VideoPlayer
+route: /components/VideoPlayer
+menu: Components
+---
+
+import { Playground } from 'docz';
+import VideoPlayer from '../components/VideoPlayer';
+import { videos } from '../_test_/__fixtures__/videos';
+
+
+# VideoPlayer
+VideoPlayer is a component to play a video using a url from YouTube. This component uses a react-player package 
+
+## Properties
+
+| Name          | Type     | Required     |Description                                |
+|:--------------|:--------:|:------------:|:------------------------------------------|
+| videoId       | String   | true         | Sting with the video Id to create the url of youtube |
+
+
+## Basic usage
+
+<Playground>
+  {() => {
+    return (
+      <div style={{ height: '400px'}}>
+        <VideoPlayer videoId={videos[0].id.videoId} />
+      </div>
+    )
+  }}
+</Playground>
+

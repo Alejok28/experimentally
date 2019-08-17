@@ -15,5 +15,5 @@ export default function VideoPlayer({ videoId}) {
 }
 
 VideoPlayer.propTypes = {
-  videoId: PropTypes.string,
+  videoId: PropTypes.string.isRequired
 };

@@ -23,7 +23,7 @@ export default function RecommendedItem({ video, handleClick }) {
   const { snippet } = video;
 
   return (
-    <Grid className={classes.grid}item xs={12}>
+    <Grid className={classes.grid} item xs={12}>
       <Tooltip title={escapeHtml(snippet.title)}>
         <img
           className={classes.img}

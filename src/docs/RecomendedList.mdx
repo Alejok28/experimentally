@@ -1,0 +1,44 @@
+---
+name: RecommendedList
+route: /components/RecomendedList
+menu: Components
+---
+
+import { Playground } from 'docz';
+import RecomendedList from '../components/RecomendedList';
+import { videos } from '../_test_/__fixtures__/videos';
+
+
+# RecomendedList
+RecommendedList is a component that shows a list of the first six videos that match with the search, otherwise if there is no search the component will show the recommended videos.
+
+## Properties
+
+| Name          | Type     | Required     |Description                                |
+|:--------------|:--------:|:------------:|:------------------------------------------|
+| videos        | Array    | false = []   | Array with the info commig from YoutubeApi|
+| loading       | Bool     | false = false | Prop to indicate if the api has already  responded|
+| handleClick   | Func     | true       | This function is in charge for selecting a video to play in the VideoPlayer component |
+
+
+## Basic usage
+
+### Waiting for the request response
+
+<Playground>
+  <RecomendedList
+    loading={true}
+    handleClick={video => console.log(video)}
+  />
+</Playground>
+
+### When the request is successful
+<Playground>
+  <RecomendedList
+    videos={videos}
+    loading={false}
+    handleClick={video => console.log(video)}
+  />
+</Playground>
+
+

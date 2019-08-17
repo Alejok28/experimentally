@@ -1,0 +1,27 @@
+---
+name: VideoInfo
+route: /components/VideoInfo
+menu: Components
+---
+
+import { Playground } from 'docz';
+import VideoInfo from '../components/VideoInfo';
+import { videos } from '../_test_/__fixtures__/videos';
+import { statistics } from '../_test_/__fixtures__/statistics';
+
+# VideoInfo
+VideoInfo is a component to play a video using a url from YouTube. This component uses a react-player package 
+
+## Properties
+
+| Name          | Type     | Required     |Description                                |
+|:--------------|:--------:|:------------:|:------------------------------------------|
+| videoId       | String   | true         | Sting with the video Id to create the url of youtube |
+
+
+## Basic usage
+
+<Playground>
+  <VideoInfo snippet={videos[0].snippet} statistics={statistics} />
+</Playground>
+
